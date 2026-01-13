@@ -1,10 +1,16 @@
 #!/bin/sh
-# Symlink .githooks/pre-push to .git/hooks/pre-push
+# Install git hooks from .githooks/ directory
 HOOKS_DIR=".git/hooks"
 SCRIPT_DIR=".githooks"
-HOOK_NAME="pre-push"
 
 mkdir -p "$HOOKS_DIR"
-ln -sf "../../$SCRIPT_DIR/$HOOK_NAME" "$HOOKS_DIR/$HOOK_NAME"
-chmod +x "$HOOKS_DIR/$HOOK_NAME"
-echo "Git pre-push hook installed!"
+
+# Install pre-commit hook
+ln -sf "../../$SCRIPT_DIR/pre-commit" "$HOOKS_DIR/pre-commit"
+chmod +x "$HOOKS_DIR/pre-commit"
+
+# Install pre-push hook
+ln -sf "../../$SCRIPT_DIR/pre-push" "$HOOKS_DIR/pre-push"
+chmod +x "$HOOKS_DIR/pre-push"
+
+echo "Git hooks installed (pre-commit, pre-push)!"
