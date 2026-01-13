@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Auto-fix formatting and stage changes
+echo "Running deno fmt..."
+deno fmt
+git add -u
+
+# Lint
+echo "Running deno lint..."
+deno lint || exit 1
+
+# Run tests
+echo "Running tests..."
+deno test --allow-all || exit 1
+
+echo "All checks passed!"
