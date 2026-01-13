@@ -1,5 +1,4 @@
 import { encodeBase64 } from "@std/encoding/base64";
-import { crypto } from "@std/crypto/crypto";
 
 /** The PLAINTEXT signature method. */
 export const PLAINTEXT = {
